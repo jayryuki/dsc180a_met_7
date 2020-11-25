@@ -13,7 +13,7 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
     os.system('mkdir -p ' + test_resultsdir)
     os.system('mkdir -p ' + metricsdir)
     os.system('mkdir -p ' + plotsdir)
-    
+    counter = 0
     for folders in os.listdir(datadir):
         current_folder = os.path.join(datadir, folders)
         for file in os.listdir(current_folder):
@@ -28,16 +28,16 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
             if 'gt' in current:
                 gt += current
 
-    
 
-   
-    os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png")
-    num = os.popen("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png").read()
-    print(num)
- 
-    os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > ate_ouput.txt")
+        ate = os.popen('python' + ' ' + ate + ' ' + slam + ' ' + gt + ' ' +  '--plot ate_' + counter + '.png').read()
+        rpe = os.popen('python' + ' ' + rpe + ' ' + odom + ' ' + gt + ' ' +  '--plot rpe_' + counter + '.png --fixed_delta').read()
 
-    os.system('mv ate.png ' + plotsdir)
-    os.system('mv rpe.png ' + plotsdir)
+        print('ahahahah')
+        print(ate)
+        print(rpe)
+        os.system('mv ate_' + counter + plotsdir)
+        os.system('mv rpe_' + counter + plotsdir)
+
+        counter += 1
 
     #os.system('mv )"outdir":"results/",=
