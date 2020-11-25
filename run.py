@@ -4,7 +4,7 @@ import os
 
 sys.path.insert(0, 'src')
 from etl import convert_data
-from eda import main_eda
+#from eda import main_eda
 from utils import convert_notebook
 from tuning import find_metrics
 from generate import create_launch_files
@@ -27,7 +27,7 @@ def main(targets):
         for file in os.listdir(eda_config['indir']):
             files.append(os.path.join(eda_config['indir'], file))
 
-        main_eda(files, **eda_config)
+        #main_eda(files, **eda_config)
         
 #         execute notebook / convert to html
         convert_notebook(**eda_config)
