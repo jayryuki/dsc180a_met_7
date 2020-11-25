@@ -20,6 +20,8 @@ def test_data(datadir, outdir, plotsdir, ate, rpe):
         if 'gt' in current:
             gt += current
 
+
+    print('mkdir -p ' + outdir + '/{test_results, plots, metrics}')
     os.system('mkdir -p ' + outdir + '/{test_results, plots, metrics}')
   
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png > ate_ouput.txt")
