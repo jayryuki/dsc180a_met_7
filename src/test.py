@@ -32,7 +32,8 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
 
    
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png")
-    print(os.popen("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png").read())
+    num = os.popen("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png").read()
+    print(num)
  
     os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > ate_ouput.txt")
 
