@@ -22,7 +22,7 @@ def test_data(datadir, outdir, ate, rpe):
 
     os.system('mkdir -p ' + outdir)
   
-    os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png")
-    os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta")
+    os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png > ate_ouput.txt")
+    os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > rpe_ouput.txt")
     os.system('mv ate.png ' + outdir)
     os.system('mv rpe.png ' + outdir)
