@@ -9,6 +9,11 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
     slam = ''
     odom = ''
     gt = ''
+
+    os.system('mkdir -p ' + test_resultsdir)
+    os.system('mkdir -p ' + metricsdir)
+    os.system('mkdir -p ' + plotsdir)
+    
     for folders in os.listdir(datadir):
         current_folder = os.path.join(datadir, folders)
         for file in os.listdir(current_folder):
@@ -23,12 +28,11 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
             if 'gt' in current:
                 gt += current
 
-    os.system('mkdir -p ' + test_resultsdir)
-    os.system('mkdir -p ' + metricsdir)
-    os.system('mkdir -p ' + plotsdir)
+    
 
    
-    test = str(os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png"))
+    test = os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png")
+    print("output=", test)
     print(test)
     os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > ate_ouput.txt")
 
