@@ -9,5 +9,5 @@ def test_data(datadir, outdir, evaluatedir):
     for file in os.listdir(datadir):
         current = os.path.join(datadir, file)
 
-        os.system("script2.py 1")
+        os.system("python " + evaluatedir + "test")
         print(current)
