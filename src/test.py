@@ -31,9 +31,9 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
     
 
    
-    test = os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png")
-    print("output=", test)
-    print(test)
+    os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png")
+    print(os.popen("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png").read())
+ 
     os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > ate_ouput.txt")
 
     os.system('mv ate.png ' + plotsdir)
