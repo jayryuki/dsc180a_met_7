@@ -21,7 +21,6 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
         current_folder = os.path.join(datadir, folders)
         for file in os.listdir(current_folder):
             current = os.path.join(current_folder, file)
-            print(current)
             if 'slam' in current:
                 slam += current
             
@@ -44,7 +43,7 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
         to_write = ate + ',' + rpe + ',' + metric
         to_write = to_write.replace('\n', '')
         report.write(to_write)
-        
+
         os.system('mv ate_' + str(counter) + '.png ' + plotsdir)
         os.system('mv rpe_' + str(counter) + '.png ' + plotsdir)
         os.system('mv test_report.txt '+ test_resultsdir)

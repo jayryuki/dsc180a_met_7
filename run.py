@@ -12,7 +12,7 @@ from test import test_data
 
 
 def main(targets):
-    print(targets)
+
     data_config = json.load(open('config/data-params.json'))
     eda_config = json.load(open('config/eda-params.json'))
     tuning_config = json.load(open('config/tuning-params.json'))
