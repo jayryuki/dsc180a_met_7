@@ -27,5 +27,5 @@ def test_data(datadir, outdir, ate, rpe):
     print("python" + " " + slam + " " + gt + " " + "--plot ate.pdf")
     os.system('mkdir -p /' + outdir)
   
-    os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot " + outdir + "ate.png")
+    os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png")
         
