@@ -41,13 +41,8 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
         ate = os.popen('python' + ' ' + ate + ' ' + slam + ' ' + gt + ' ' +  '--plot ate_' + str(counter) + '.png').read()
         rpe = os.popen('python' + ' ' + rpe + ' ' + odom + ' ' + gt + ' ' +  '--plot rpe_' + str(counter) + '.png --fixed_delta').read()
         
-        to_write = ''
-        to_write += ate
-        to_write += ','
-        to_write += rpe 
-        to_write += ','
-        to_write += metric
-        
+        to_write = ate + ',' + rpe + ',' + metric
+        to_write = to_write.replace('\r\n', '')
         print(to_write)
         report.write(to_write)
         os.system('mv ate_' + str(counter) + '.png ' + plotsdir)
