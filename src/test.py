@@ -25,6 +25,9 @@ def test_data(datadir, outdir, ate, rpe):
     print(odom)
     print(gt)
     print("python" + " " + slam + " " + gt + " " + "--plot ate.pdf")
-    os.system("mkdir " + 'results')
+    os.system('mkdir results')
+    os.system('cd results')
+    os.system('mkdir test_results')
+    os.system('cd ..')
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot " + outdir + "ate.png")
         
