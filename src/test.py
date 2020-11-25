@@ -26,10 +26,13 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
     os.system('mkdir -p ' + test_resultsdir)
     os.system('mkdir -p ' + metricsdir)
     os.system('mkdir -p ' + plotsdir)
-
+    old_stdout = sys.stdout
+    new_stdout = io.StringIO()
+    sys.stdout = new_stdout
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png")
-    original_stdout = sys.stdout
-    print(original_stdout)
+    output = new_stdout.getvalue()
+    sys.stdout = old_stdout
+    print(output)
     os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > ate_ouput.txt")
 
     os.system('mv ate.png ' + plotsdir)
