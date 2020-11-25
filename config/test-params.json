@@ -1,4 +1,5 @@
 {
     "datadir":"test/testdata",
-    "outdir":"results/test_results"
+    "outdir":"results/test_results",
+    "evaluatedir": "/tmp/slamevaluations"
 }
