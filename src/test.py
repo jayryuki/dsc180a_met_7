@@ -19,7 +19,7 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
         current_folder = os.path.join(datadir, folders)
         for file in os.listdir(current_folder):
             current = os.path.join(current_folder, file)
-
+            print(current)
             if 'slam' in current:
                 slam += current
             
