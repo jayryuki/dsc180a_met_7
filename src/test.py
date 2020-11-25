@@ -35,13 +35,13 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
                 parameters += current
 
         parameter_file = open(parameters, 'r')
-        all_parameters.append(parameter_file.readline())
-        print(all_parameters)
+        metric = parameter_file.readline()
         parameter_file.close()
+
         ate = os.popen('python' + ' ' + ate + ' ' + slam + ' ' + gt + ' ' +  '--plot ate_' + str(counter) + '.png').read()
         rpe = os.popen('python' + ' ' + rpe + ' ' + odom + ' ' + gt + ' ' +  '--plot rpe_' + str(counter) + '.png --fixed_delta').read()
 
-        report.write(ate + ' ' + rpe)
+        report.write(ate + ',' + rpe + ',' + metric)
         os.system('mv ate_' + str(counter) + '.png ' + plotsdir)
         os.system('mv rpe_' + str(counter) + '.png ' + plotsdir)
         os.system('mv test_report.txt '+ test_resultsdir)
