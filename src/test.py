@@ -21,8 +21,8 @@ def test_data(datadir, outdir, plotsdir, ate, rpe):
             gt += current
 
 
-    print('mkdir -p ' + outdir + '{test_results  plots  metrics}')
-    os.system('mkdir -p ' + outdir + '{test_results  plots  metrics}')
+    print('mkdir -p ' + outdir + '{test_results,plots,metrics}')
+    os.system('mkdir -p ' + outdir + '{test_results,plots,metrics}')
   
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png > ate_ouput.txt")
     os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > rpe_ouput.txt")
