@@ -24,5 +24,6 @@ def test_data(datadir, outdir, ate, rpe):
     print(slam)
     print(odom)
     print(gt)
+    print("python" + " " + slam + " " + gt + " " + "--plot ate.pdf")
     os.system("python" + " " + slam + " " + gt + " " + "--plot ate.pdf")
         
