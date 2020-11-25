@@ -3,6 +3,7 @@ from os.path import isfile, join
 import os
 import pandas as pd
 import sys
+import io
 
 def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
     report = open(r'test_report.txt', 'w+')
