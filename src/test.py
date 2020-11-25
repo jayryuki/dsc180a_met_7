@@ -43,8 +43,8 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
         
         to_write = ate + ',' + rpe + ',' + metric
         to_write = to_write.replace('\n', '')
-        print('\n' in to_write)
         report.write(to_write)
+        
         os.system('mv ate_' + str(counter) + '.png ' + plotsdir)
         os.system('mv rpe_' + str(counter) + '.png ' + plotsdir)
         os.system('mv test_report.txt '+ test_resultsdir)
