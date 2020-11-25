@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import sys
 
-def test_data(datadir, outdir, plotsdir, ate, rpe):
+def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
     report = open(r'test_report.txt', 'w+')
     slam = ''
     odom = ''
@@ -15,23 +15,22 @@ def test_data(datadir, outdir, plotsdir, ate, rpe):
             current = os.path.join(current_folder, file)
 
             if 'slam' in current:
-                print('Slam is now: ' + current)
                 slam += current
             
             if 'odom' in current:
-                print('Odom is now: ' + current)
                 odom += current
             
             if 'gt' in current:
-                print('GT is now: ' + current)
                 gt += current
 
-    os.system('mkdir -p ' + outdir + 'test_results')
-    os.system('mkdir -p ' + outdir + 'metrics')
-    os.system('mkdir -p ' + outdir + 'plots')
+    os.system('mkdir -p ' + test_resultsdir)
+    os.system('mkdir -p ' + metricsdir)
+    os.system('mkdir -p ' + plotsdir)
 
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png > ate_ouput.txt")
-    os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > rpe_ouput.txt")
+    os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > ate_ouput.txt")
 
     os.system('mv ate.png ' + plotsdir)
     os.system('mv rpe.png ' + plotsdir)
+
+    #os.system('mv )
