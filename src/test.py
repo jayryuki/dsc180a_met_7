@@ -14,24 +14,21 @@ def test_data(datadir, outdir, plotsdir, ate, rpe):
         for file in os.listdir(current_folder):
             current = os.path.join(current_folder, file)
 
-        if 'slam' in current:
-            print('Slam is now: ' + current)
-            slam += current
-        
-        if 'odom' in current:
-            print('Odom is now: ' + current)
-            odom += current
-        
-        if 'gt' in current:
-            print('GT is now: ' + current)
-            gt += current
-
-
+            if 'slam' in current:
+                print('Slam is now: ' + current)
+                slam += current
+            
+            if 'odom' in current:
+                print('Odom is now: ' + current)
+                odom += current
+            
+            if 'gt' in current:
+                print('GT is now: ' + current)
+                gt += current
 
     os.system('mkdir -p ' + outdir + 'test_results')
     os.system('mkdir -p ' + outdir + 'metrics')
     os.system('mkdir -p ' + outdir + 'plots')
-    
 
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png > ate_ouput.txt")
     os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > rpe_ouput.txt")
