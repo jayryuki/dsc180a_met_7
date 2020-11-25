@@ -1,6 +1,7 @@
 {
     "datadir":"test/testdata/",
-    "outdir":"results/test_results/",
+    "outdir":"results/",
+    "plotsdir": "results/plots",
     "ate": "/tmp/slamevaluations/evaluate_ate.py",
     "rpe": "/tmp/slamevaluations/evaluate_rpe.py"
 }
