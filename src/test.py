@@ -14,6 +14,7 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
     os.system('mkdir -p ' + metricsdir)
     os.system('mkdir -p ' + plotsdir)
     
+    counter = 0
     for folders in os.listdir(datadir):
         current_folder = os.path.join(datadir, folders)
         for file in os.listdir(current_folder):
@@ -29,10 +30,11 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
                 gt += current
 
 
-        ate = os.popen("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png").read()
-        rpe = os.popen("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta").read()
+        ate = os.popen('python' + ' ' + ate + ' ' + slam + ' ' + gt + ' ' +  '--plot ate_' + str(counter) + '.png').read()
+        rpe = os.popen('python' + ' ' + rpe + ' ' + odom + ' ' + gt + ' ' +  '--plot rpe_' + str(counter) + '.png --fixed_delta').read()
 
-        os.system('mv ate_' + counter + plotsdir)
-        os.system('mv rpe_' + counter + plotsdir)
-
-    #os.system('mv )"outdir":"results/",=
+        os.system('mv ate_' + str(counter) + plotsdir)
+        os.system('mv rpe_' + str(counter) + plotsdir)
+        
+        counter += 1
+    #os.system('mv )'outdir':'results/',=
