@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import sys
 
-def test_data(datadir, outdir, evaluatedir):
+def test_data(datadir, outdir, ate, rpe):
     report = open(r'test_report.txt', 'w+')
     slam = ''
     odom = ''
