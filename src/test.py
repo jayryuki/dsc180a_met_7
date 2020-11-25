@@ -20,13 +20,9 @@ def test_data(datadir, outdir, ate, rpe):
         if 'gt' in current:
             gt += current
 
-
-    print(slam)
-    print(odom)
-    print(gt)
-
     os.system('mkdir -p ' + outdir)
   
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png")
-    
+    os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta")
     os.system('mv ate.png ' + outdir)
+    os.system('mv rpe.png ' + outdir)
