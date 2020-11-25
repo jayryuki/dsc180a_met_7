@@ -28,7 +28,9 @@ def test_data(datadir, outdir, plotsdir, ate, rpe):
     os.system('mkdir -p ' + outdir + 'test_results')
     os.system('mkdir -p ' + outdir + 'metrics')
     os.system('mkdir -p ' + outdir + 'plots')
-  
+    
+    print("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png > ate_ouput.txt")
+    print("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > rpe_ouput.txt")
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png > ate_ouput.txt")
     os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > rpe_ouput.txt")
 
