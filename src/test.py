@@ -9,12 +9,14 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
     slam = ''
     odom = ''
     gt = ''
-
+    parameters = ''
+    all_parameters = []
     os.system('mkdir -p ' + test_resultsdir)
     os.system('mkdir -p ' + metricsdir)
     os.system('mkdir -p ' + plotsdir)
     
     counter = 0
+    
     for folders in os.listdir(datadir):
         current_folder = os.path.join(datadir, folders)
         for file in os.listdir(current_folder):
@@ -29,6 +31,12 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
             if 'gt' in current:
                 gt += current
 
+            if 'hyperparameters' in current:
+                parameters += current
+
+        parameter_file = open(parameters, 'r')
+        all_parameters.append(parameter_file.readLine())
+        print(all_parameters)
 
         ate = os.popen('python' + ' ' + ate + ' ' + slam + ' ' + gt + ' ' +  '--plot ate_' + str(counter) + '.png').read()
         rpe = os.popen('python' + ' ' + rpe + ' ' + odom + ' ' + gt + ' ' +  '--plot rpe_' + str(counter) + '.png --fixed_delta').read()
