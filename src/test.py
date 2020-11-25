@@ -36,7 +36,7 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
 
         parameter_file = open(parameters, 'r')
         all_parameters.append(parameter_file.readline())
-        print(all_parameter)
+        print(all_parameters)
         parameter_file.close()
         ate = os.popen('python' + ' ' + ate + ' ' + slam + ' ' + gt + ' ' +  '--plot ate_' + str(counter) + '.png').read()
         rpe = os.popen('python' + ' ' + rpe + ' ' + odom + ' ' + gt + ' ' +  '--plot rpe_' + str(counter) + '.png --fixed_delta').read()
