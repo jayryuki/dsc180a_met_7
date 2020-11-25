@@ -1,6 +1,5 @@
 {
     "datadir":"test/testdata/",
-    "outdir":"results/",
     "test_resultsdir":"results/test_results",
     "metricsdir":"results/metrics",
     "plotsdir": "results/plots",
