@@ -13,14 +13,17 @@ def test_data(datadir, outdir, plotsdir, ate, rpe):
         current_folder = os.path.join(datadir, folders)
         for file in os.listdir(current_folder):
             current = os.path.join(current_folder, file)
-            print(current)
+
         if 'slam' in current:
+            print('Slam is now: ' + current)
             slam += current
         
         if 'odom' in current:
+            print('Odom is now: ' + current)
             odom += current
         
         if 'gt' in current:
+            print('GT is now: ' + current)
             gt += current
 
 
@@ -29,8 +32,7 @@ def test_data(datadir, outdir, plotsdir, ate, rpe):
     os.system('mkdir -p ' + outdir + 'metrics')
     os.system('mkdir -p ' + outdir + 'plots')
     
-    print("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png > ate_ouput.txt")
-    print("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > rpe_ouput.txt")
+
     os.system("python" + " " + ate + " " + slam + " " + gt + " " +  "--plot ate.png > ate_ouput.txt")
     os.system("python" + " " + rpe + " " + odom + " " + gt + " " +  "--plot rpe.png --fixed_delta > rpe_ouput.txt")
 
