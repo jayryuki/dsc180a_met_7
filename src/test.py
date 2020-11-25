@@ -50,3 +50,5 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
         counter += 1
 
     report.close()
+
+    print('Test data has been processed. Results are located in: ' + test_resultsdir)
