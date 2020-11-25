@@ -1,6 +1,6 @@
 {
     "datadir":"test/testdata",
     "outdir":"results/test_results",
-    "ate": "/tmp/slamevaluations/evaluate_ate.py",
-    "rpe": "/test/test_p.py"
+    "ate": "/tmp/slamevaluations/",
+    "rpe": "/test/"
 }
