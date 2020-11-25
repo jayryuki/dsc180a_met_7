@@ -33,8 +33,8 @@ def test_data(datadir, test_resultsdir, metricsdir, plotsdir, ate, rpe):
         ate = os.popen('python' + ' ' + ate + ' ' + slam + ' ' + gt + ' ' +  '--plot ate_' + str(counter) + '.png').read()
         rpe = os.popen('python' + ' ' + rpe + ' ' + odom + ' ' + gt + ' ' +  '--plot rpe_' + str(counter) + '.png --fixed_delta').read()
 
-        os.system('mv ate_' + str(counter) + plotsdir)
-        os.system('mv rpe_' + str(counter) + plotsdir)
-        
+        os.system('mv ate_' + str(counter) + ' ' + plotsdir)
+        os.system('mv rpe_' + str(counter) + ' ' + plotsdir)
+
         counter += 1
     #os.system('mv )'outdir':'results/',=
